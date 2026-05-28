@@ -1,0 +1,17 @@
+class Solution(object):
+    def nextGreaterElement(self, nums1, nums2):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: List[int]
+        """
+        ans = []
+        for i in nums1:
+            api = -1
+            print(i)
+            for j in range(nums2.index(i)+1, len(nums2)):
+                if nums2[j] > i:
+                    api = nums2[j]
+                    break
+            ans.append(api)
+        return ans
