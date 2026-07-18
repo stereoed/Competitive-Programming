@@ -1,0 +1,8 @@
+{
+  "label": "build-and-run",
+  "type": "shell",
+  "command": "g++ -std=c++17 -isystem . -Wall -Wextra -Wno-cpp -Wsign-conversion -Wfatal-errors -O2 -fsanitize=address,undefined -g main.cpp -o main && ./main < input > output",
+  "group": { "kind": "build", "isDefault": true },
+  "problemMatcher": ["$g++"],
+  "presentation": { "reveal": "always", "panel": "shared" }
+}

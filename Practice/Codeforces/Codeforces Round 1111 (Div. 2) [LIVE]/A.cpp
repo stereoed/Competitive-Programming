@@ -1,0 +1,104 @@
+#pragma GCC optimize("Ofast")
+
+#if __has_include("stdc++.h")
+#include "stdc++.h"
+#else
+#include <bits/stdc++.h>
+#endif
+
+#if __has_include("cpp-dump.hpp")
+    #include "cpp-dump.hpp"
+    #define dump(...) cpp_dump(__VA_ARGS__);
+#else
+    #define dump(...)
+#endif
+
+// ORDERED TREE
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+
+using namespace __gnu_pbds;
+using namespace std;
+
+#define ordered_set tree<pair<ll, int>, null_type,less<pair<ll, int>>, rb_tree_tag,tree_order_statistics_node_update>
+
+typedef long long ll;
+typedef pair<int, int> pii;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<pii> vii;
+typedef vector<bool> vb;
+typedef vector<vb> vvb;
+typedef vector<vii> vvii;
+typedef tuple<int, int, int> tiii;
+
+template<class T> using pq = priority_queue<T>;
+template<class T> using pqg = priority_queue<T, vector<T>, greater<T>>;
+
+#define FastIO ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
+#define el '\n'
+#define rep(i, n) for (int i = 0; i < (int)(n); i++)
+#define repx(i, a, n) for (int i = (int)a; i < (int)(n); i++)
+#define repb(i, n) for (int i = (int)n - 1; i >= 0; i--)
+#define pb push_back
+#define all(v) v.begin(), v.end()
+#define rall(v) v.rbegin(), v.rend()
+#define yes "YES"
+#define no "NO"
+
+
+const int MOD = 998244353;
+const double EPS = 1e-9;
+const int INF = 1e9;
+const ll INFL = 1e17;
+
+ll gcd(ll a,ll b) { if (b==0) return a; return gcd(b, a%b); }
+ll lcm(ll a,ll b) { return a/gcd(a,b)*b; }
+ll floor(ll a, ll b) { return a / b - (a % b < 0); }
+ll ceil(ll a, ll b) { return a / b + (a % b > 0); }
+
+template<typename T>
+istream& operator>>(istream& in, vector<T> &vec){
+    for(auto &x : vec){
+        in>>x;
+    }
+    return in;
+}
+
+const int MAXN = 500;
+int n;
+
+void solve() {
+    cin >> n;
+    vi arr(n); cin >> arr;
+
+    int one = 0;
+    rep(i, n){
+        if (arr[i] == 1) one++;
+    }
+
+    int neg_one = (n - one);
+    bool is_posible = n%2 == 0;
+    bool parity = ((one&1) == (neg_one&1));
+    bool n_parity = (((n/2)&1) == (neg_one&1));
+    dump(n, neg_one, one, parity)
+
+    if (is_posible && n_parity && parity){
+        cout << yes << el;
+        return;
+    }
+    cout << no << el;
+}
+
+int main() {
+	FastIO;
+
+	int t = 1;
+	cin >> t;
+	
+	while (t--) {
+		solve();
+	}
+
+	return 0;
+}
