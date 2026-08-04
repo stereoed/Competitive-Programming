@@ -9,23 +9,25 @@ using namespace std;
     #define dump(...)
 #endif
 
-
-int n, a, b;
+int n, m;
 vector<int> v;
+string s, s1, s2;
 
 void solve(){
-    bool ok = false;
-    cin >> n >> a >> b;
+    cin >> n;
 
-    ok |= (a + b < n - 1);
-    ok |= (a == b && a == n);
+    int ans = 1e9;
+    for (int i = 0; i < n; i++){
+        cin >> m;
+        ans = min(ans, abs(m));
+    }
 
-    cout << (ok ? "YES\n" : "NO\n");
+    cout << ans << '\n';
 }
 
 int main() {
     ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
-    int t = 1; cin >> t;
+    int t = 1; //cin >> t;
 
     while (t--) {
         solve();

@@ -9,18 +9,28 @@ using namespace std;
     #define dump(...)
 #endif
 
-
-int n, a, b;
-vector<int> v;
+int n, m;
+vector<int> v, ans;
+string s, s1, s2;
 
 void solve(){
-    bool ok = false;
-    cin >> n >> a >> b;
+    cin >> n;
+    v.assign(n, 0);
+    ans.clear();
 
-    ok |= (a + b < n - 1);
-    ok |= (a == b && a == n);
+    for (auto& x : v){
+        cin >> x;
+    }
 
-    cout << (ok ? "YES\n" : "NO\n");
+    ans.push_back(v[0]);
+    for (int i = 1; i < n; i++){
+        if (v[i] < v[i-1]) ans.push_back(1);
+        ans.push_back(v[i]);
+    }
+
+    cout << ans.size() << '\n';
+    for (auto x : ans) cout << x << " ";
+    cout << '\n';
 }
 
 int main() {

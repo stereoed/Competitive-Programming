@@ -10,15 +10,22 @@ using namespace std;
 #endif
 
 
-int n, a, b;
+int n;
+string s;
 vector<int> v;
 
 void solve(){
-    bool ok = false;
-    cin >> n >> a >> b;
+    cin >> n;
+    v.assign(n, 0);
+    for (auto& x : v) cin >> x;
 
-    ok |= (a + b < n - 1);
-    ok |= (a == b && a == n);
+    bool ok = false;
+
+    for (int i = 0; i < n; i++){
+        for (int j = i + 1; j < n; j++){
+            ok |= gcd(v[i], v[j]) <= 2;
+        }
+    }
 
     cout << (ok ? "YES\n" : "NO\n");
 }

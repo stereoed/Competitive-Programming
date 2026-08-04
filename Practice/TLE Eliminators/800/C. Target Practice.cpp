@@ -9,18 +9,24 @@ using namespace std;
     #define dump(...)
 #endif
 
-
-int n, a, b;
+int n, m;
 vector<int> v;
+string s, s1, s2;
 
 void solve(){
-    bool ok = false;
-    cin >> n >> a >> b;
+    int sum = 0;
 
-    ok |= (a + b < n - 1);
-    ok |= (a == b && a == n);
+    for (int i = 1; i <= 10; i++){
+        cin >> s;
+        for (int j = 1; j <= 10; j++){
+            if (s[j-1] == '.') continue;
+            int max_score = (i > 5 ? 10 - i + 1 : i);
+            int x = (j > 5 ? 10 - j + 1 : j); 
+            sum += min(max_score, x);
+        }
+    }
 
-    cout << (ok ? "YES\n" : "NO\n");
+    cout << sum << '\n';
 }
 
 int main() {

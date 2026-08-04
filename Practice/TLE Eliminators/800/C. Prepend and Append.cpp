@@ -10,17 +10,19 @@ using namespace std;
 #endif
 
 
-int n, a, b;
-vector<int> v;
+int n;
+string s;
 
 void solve(){
-    bool ok = false;
-    cin >> n >> a >> b;
+    cin >> n >> s;
+    int l = 0, r = n-1, ans = 0;
 
-    ok |= (a + b < n - 1);
-    ok |= (a == b && a == n);
+    while (l < r){
+        if (s[l] == s[r]) break;
+        l++; r--; ans++;
+    }
 
-    cout << (ok ? "YES\n" : "NO\n");
+    cout << n - 2*ans << '\n';
 }
 
 int main() {

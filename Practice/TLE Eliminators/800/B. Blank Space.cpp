@@ -9,18 +9,19 @@ using namespace std;
     #define dump(...)
 #endif
 
-
-int n, a, b;
+int n, k, x, m, a, b, c;
 vector<int> v;
+string s, s1, s2;
 
 void solve(){
-    bool ok = false;
-    cin >> n >> a >> b;
-
-    ok |= (a + b < n - 1);
-    ok |= (a == b && a == n);
-
-    cout << (ok ? "YES\n" : "NO\n");
+    cin >> n;
+    int streak = 0, mx = 0;
+    for (int i = 0; i < n; i++){
+        cin >> a;
+        streak = (a ? 0 : streak + 1);
+        mx = max(mx, streak);
+    }
+    cout << mx << '\n';
 }
 
 int main() {

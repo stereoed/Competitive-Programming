@@ -9,18 +9,19 @@ using namespace std;
     #define dump(...)
 #endif
 
-
-int n, a, b;
-vector<int> v;
+int n, m;
 
 void solve(){
-    bool ok = false;
-    cin >> n >> a >> b;
+    cin >> n >> m;
+    vector<int> arr(n);
+    for (auto& k : arr) cin >> k;
+    
+    if (!is_sorted(arr.begin(), arr.end()) && m == 1){
+        cout << "NO\n";
+        return;
+    }
 
-    ok |= (a + b < n - 1);
-    ok |= (a == b && a == n);
-
-    cout << (ok ? "YES\n" : "NO\n");
+    cout << "YES\n";
 }
 
 int main() {

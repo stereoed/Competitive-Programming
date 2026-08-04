@@ -9,16 +9,34 @@ using namespace std;
     #define dump(...)
 #endif
 
-
-int n, a, b;
-vector<int> v;
+int n, m;
+vector<int> arr;
+string s;
 
 void solve(){
-    bool ok = false;
-    cin >> n >> a >> b;
+    bool ok = true;
 
-    ok |= (a + b < n - 1);
-    ok |= (a == b && a == n);
+    cin >> n;
+    arr.assign(n, 0);
+
+    for (auto& x : arr) {
+        cin >> x;
+    }
+
+ 
+    sort(arr.begin(), arr.end());
+    map<int, int> cnt;
+
+    for (const auto x : arr){
+        cnt[x]++;
+    }
+
+    ok &= (cnt.size() <= 2);
+    
+    if (cnt.size() == 2){
+        int a = arr[0], b = arr[n-1];
+        ok &= (abs(cnt[a] - cnt[b]) <= 1);
+    }    
 
     cout << (ok ? "YES\n" : "NO\n");
 }

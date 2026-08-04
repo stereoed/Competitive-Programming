@@ -10,17 +10,24 @@ using namespace std;
 #endif
 
 
-int n, a, b;
+int n;
+string s;
 vector<int> v;
 
 void solve(){
-    bool ok = false;
-    cin >> n >> a >> b;
+    cin >> n;
+    v.assign(n, 0);
+    int ans = 0, prev = -1;
 
-    ok |= (a + b < n - 1);
-    ok |= (a == b && a == n);
+    for (auto& x : v) {
+        cin >> x;
+        
+        int cur = x&1;
+        if (prev == cur) ans++;
+        prev = cur;
+    }
 
-    cout << (ok ? "YES\n" : "NO\n");
+    cout << ans << '\n';
 }
 
 int main() {

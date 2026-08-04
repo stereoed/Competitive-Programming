@@ -10,15 +10,14 @@ using namespace std;
 #endif
 
 
-int n, a, b;
-vector<int> v;
+long long n, k;
 
 void solve(){
-    bool ok = false;
-    cin >> n >> a >> b;
+    cin >> n >> k;
+    bool ok = (n % 2 == 0);
 
-    ok |= (a + b < n - 1);
-    ok |= (a == b && a == n);
+    n -= k;
+    ok |= (n % 2 == 0);
 
     cout << (ok ? "YES\n" : "NO\n");
 }

@@ -9,18 +9,23 @@ using namespace std;
     #define dump(...)
 #endif
 
-
-int n, a, b;
+int n, m;
 vector<int> v;
+string s, s1, s2;
 
 void solve(){
-    bool ok = false;
-    cin >> n >> a >> b;
+    cin >> n >> m >> s1 >> s2; dump(n, m, s1, s2);
+    
+    for (int i = 0; i <= 5; i++){
+        int j = 0; dump(i, n);
+        if (s1.find(s2) != string::npos) {
+            cout << i << '\n';
+            return;
+        }
+        s1 += s1;
+    }
 
-    ok |= (a + b < n - 1);
-    ok |= (a == b && a == n);
-
-    cout << (ok ? "YES\n" : "NO\n");
+    cout << "-1\n";
 }
 
 int main() {

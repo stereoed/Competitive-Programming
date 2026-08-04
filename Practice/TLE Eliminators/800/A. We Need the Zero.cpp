@@ -10,17 +10,23 @@ using namespace std;
 #endif
 
 
-int n, a, b;
-vector<int> v;
+int n;
 
 void solve(){
-    bool ok = false;
-    cin >> n >> a >> b;
+    cin >> n;
+    int X = 0;
+    
+    for (int i = 0; i < n; i++){
+        int a; cin >> a;
+        X ^= a;
+    }
 
-    ok |= (a + b < n - 1);
-    ok |= (a == b && a == n);
+    if (n&1 || X == 0){
+        cout << X << '\n';
+        return;
+    }
 
-    cout << (ok ? "YES\n" : "NO\n");
+    cout << -1 << '\n';
 }
 
 int main() {

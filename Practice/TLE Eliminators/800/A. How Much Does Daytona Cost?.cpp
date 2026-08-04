@@ -9,16 +9,20 @@ using namespace std;
     #define dump(...)
 #endif
 
-
-int n, a, b;
+int n, m;
 vector<int> v;
+string s, s1, s2;
 
 void solve(){
     bool ok = false;
-    cin >> n >> a >> b;
+    cin >> n >> m;
+    v.assign(n, 0);
 
-    ok |= (a + b < n - 1);
-    ok |= (a == b && a == n);
+    for (int& x : v) {
+        cin >> x;
+        ok |= x == m;
+    }
+
 
     cout << (ok ? "YES\n" : "NO\n");
 }

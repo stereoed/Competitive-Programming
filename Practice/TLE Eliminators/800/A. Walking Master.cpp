@@ -10,17 +10,28 @@ using namespace std;
 #endif
 
 
-int n, a, b;
-vector<int> v;
+int a, b, c, d;
 
 void solve(){
-    bool ok = false;
-    cin >> n >> a >> b;
+    cin >> a >> b >> c >> d;
+    
+    if (b > d){
+        cout << "-1\n";
+        return;
+    }
 
-    ok |= (a + b < n - 1);
-    ok |= (a == b && a == n);
+    int ans = d - b; // {a + d - b, d}
+    a += d - b;
 
-    cout << (ok ? "YES\n" : "NO\n");
+    dump(ans, a, d, b, d);
+
+    if (a < c){
+        cout << "-1\n";
+        return;
+    }
+
+    ans += a - c;
+    cout << ans << '\n';
 }
 
 int main() {

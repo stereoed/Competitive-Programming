@@ -9,18 +9,19 @@ using namespace std;
     #define dump(...)
 #endif
 
-
-int n, a, b;
+int n, k, x, m, a, b, c;
 vector<int> v;
+string s, s1, s2;
 
 void solve(){
-    bool ok = false;
-    cin >> n >> a >> b;
+    cin >> x >> k;
+    
+    if (x < k || x % k != 0){
+        cout << "1\n" << x << '\n';
+        return;
+    }
 
-    ok |= (a + b < n - 1);
-    ok |= (a == b && a == n);
-
-    cout << (ok ? "YES\n" : "NO\n");
+    cout << "2\n" << x-1 << " 1" << '\n';
 }
 
 int main() {
