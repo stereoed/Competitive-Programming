@@ -2,7 +2,10 @@
   "label": "build-and-run",
   "type": "shell",
   "command": "clear; clear; g++ -std=c++17 -Wall -Wextra -Wno-cpp main.cpp -o main && ./main < input > output",
-  "group": { "kind": "build", "isDefault": true },
+  "group": {
+    "kind": "build",
+    "isDefault": true
+  },
   "problemMatcher": ["$g++"],
   "presentation": { "reveal": "always", "panel": "shared" }
 }
